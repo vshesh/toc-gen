@@ -1,0 +1,96 @@
+{
+  "order": ["equilibrium", "objectives", "outcomes", "outputs","actions"],
+
+  "equilibrium": [
+    [1,"Sponsors feel that their money is spent well, they gain recruitment options, and have an association with innovation"],
+    [2,"Students feel empowered to continue innovating, they gain self-efficacy (and maybe become mentors)"],
+    [4,"Students feel that they are innovators and have a community of students to share that with"],
+    [3,"Mentors feel fulfilled and inspired, and understand the context of students better"],
+    [5,"The community becomes aware and inspired (maybe to contribute)"]
+  ],
+
+  "objectives": [
+    [1,"Sponsors are associated with innovation"],
+    [2,"Companies have recruitment options"],
+    [3,"Students know how to access and utilise their support network and feel comfortable doing so"],
+    [4,"Students have a critical, connected, socially-oriented mind"],
+    [5,"Students are comfortable and effective articulators"],
+    [6,"Students are effective collaborators"],
+    [7,"Students see failure as part of a process"],
+    [8,"Mentors gain mentoring skills"],
+    [9,"Mentors are invested in their students"],
+    [10,"Students have meaningful long-term relationships with other club members"],
+    [11,"Ripples generated from the student's stories"]
+  ],
+
+  "outcomes": [
+    [1,"Students learn to use the Internet"],
+    [2,"Students learn to problem solve"],
+    [3,"Professional communicating and pitching skills"],
+    [4,"Log Book (development plan)"],
+    [5,"Students reflect"],
+    [6,"User personas"],
+    [7,"POV statements"],
+    [8,"Ideas"],
+    [9,"Concrete solutions"],
+    [10,"A story (some failures)"],
+    [11,"Students pitch and share their ideas and process with the com"]
+  ],
+
+  "outputs": [
+    [1,"How to google workshop"],
+    [2,"Communications workshop"],
+    [3,"Mentorship Program:"],
+    [4,"Facilitate design thinking workshop:"],
+    [5,"Students make a presentation"],
+    [6,"Invite the community to pitching event (showcase)"]  
+  ],
+
+  "actions" : [
+    [1,"Mentors receive training"],
+    [2,"Weekly meetups/project management"],
+    [3,"Facilitate personal development"],
+    [4,"empathise/compassion"],
+    [5,"identify needs"],
+    [6,"brainstorm"],
+    [7,"prototype/test"]
+  ],
+
+  "links": {
+    "equilibrium":[[1,1],[1,2],[2,4],[2,5],[2,6],[2,7],[3,8],[3,9],[4,3],[4,4],[4,6],[4,7],[4,10],[5,11]],
+    "objectives":[[3,1],[3,3],[4,2],[4,6],[4,7],[5,3],[5,5],[5,6],[5,11],[6,8],[6,9],[7,4],[7,10],[11,11]],
+    "outcomes": [[1,1],[2,4],[3,2],[4,2],[5,3],[6,4],[7,5],[8,6],[11,5],[11,6]],
+    "outputs": [[3,1],[3,2],[3,3],[4,4],[4,5],[4,6],[4,7]]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
