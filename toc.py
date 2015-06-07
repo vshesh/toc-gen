@@ -1,4 +1,4 @@
-#!/python3
+#!/python
 from sys import argv
 from toolz import *
 import json
@@ -57,10 +57,10 @@ def process(f):
   order = list(sliding_window(2,data['order']))
 
   # make the first boxes
-  print('<div class="flex-row '+order[0][0]+'">')
+  print '<div class="flex-row '+order[0][0]+'">'
   for k,v in data[order[0][0]]:
-    print('<div class="flex-1"><p class="vertical-align">'+v+'</p></div>')
-  print('</div>')
+    print '<div class="flex-1"><p class="vertical-align">'+v+'</p></div>'
+  print '</div>'
 
   for e in order:
     topn = len(data[e[0]])
@@ -68,24 +68,24 @@ def process(f):
     toporder = list(pluck(0, data[e[0]]))
     botorder = list(pluck(0, data[e[1]]))
     # make the lines between the first/second elements
-    print('<svg viewBox="0 0',(topn*botn),int(topn*botn/20),'">')
+    print '<svg viewBox="0 0',(topn*botn),int(topn*botn/20),'">'
     for t,b in data['links'][e[0]]:
-      print('<line x1="',botn*(toporder.index(t)+0.5),'" x2="',topn*(botorder.index(b)+0.5),'" y1="0" y2="',int(topn*botn/20),'" stroke-width="',(topn*botn/1100),'"></line>')
-    print('</svg>')
+      print '<line x1="',botn*(toporder.index(t)+0.5),'" x2="',topn*(botorder.index(b)+0.5),'" y1="0" y2="',int(topn*botn/20),'" stroke-width="',(topn*botn/1100),'"></line>'
+    print '</svg>'
     # make the elements of the second element
-    print('<div class="flex-row '+e[1]+'">')
+    print '<div class="flex-row '+e[1]+'">'
     for k,v in data[e[1]]:
-      print('<div class="flex-1"><p class="vertical-align">'+v+'</p></div>')
-    print('</div>')
+      print '<div class="flex-1"><p class="vertical-align">'+v+'</p></div>'
+    print '</div>'
 
 if __name__ == '__main__':
   if len(argv) < 3: 
-    print('usage: toc.py tocfile.json title')
+    print 'usage: toc.py tocfile.json title'
   else:
-    print(header)
-    print('<h1 class="title">'+argv[2]+'</h1>')
+    print header
+    print '<h1 class="title">'+argv[2]+'</h1>'
     process(argv[1])
-    print(footer)
+    print footer
 
 
 
