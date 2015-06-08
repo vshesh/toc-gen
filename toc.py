@@ -1,7 +1,8 @@
 #!/python
 from sys import argv
-from toolz import *
 import json
+from itertools import islice
+
 
 header='''<!doctype html>
 <html>
@@ -52,9 +53,21 @@ header='''<!doctype html>
 footer='''</body>
 </html>'''
 
+# COPIED from itertools docs
+def sliding_window(seq, n=2):
+    "Returns a sliding window (of width n) over data from the iterable"
+    "   s -> (s0,s1,...s[n-1]), (s1,s2,...,sn), ...                   "
+    it = iter(seq)
+    result = tuple(islice(it, n))
+    if len(result) == n:
+        yield result    
+    for elem in it:
+        result = result[1:] + (elem,)
+        yield result
+
 def process(f):
   data=json.load(open(f))
-  order = list(sliding_window(2,data['order']))
+  order = list(sliding_window(data['order']))
 
   # make the first boxes
   print '<div class="flex-row '+order[0][0]+'">'
@@ -65,12 +78,12 @@ def process(f):
   for e in order:
     topn = len(data[e[0]])
     botn = len(data[e[1]])
-    toporder = list(pluck(0, data[e[0]]))
-    botorder = list(pluck(0, data[e[1]]))
+    toporder = [x[0] for x in  data[e[0]]]
+    botorder = [x[0] for x in  data[e[1]]]
     # make the lines between the first/second elements
-    print '<svg viewBox="0 0',(topn*botn),int(topn*botn/20),'">'
+    print '<svg viewBox="0 0',(topn*botn),int(topn*botn/20.0),'">'
     for t,b in data['links'][e[0]]:
-      print '<line x1="',botn*(toporder.index(t)+0.5),'" x2="',topn*(botorder.index(b)+0.5),'" y1="0" y2="',int(topn*botn/20),'" stroke-width="',(topn*botn/1100),'"></line>'
+      print '<line x1="',botn*(toporder.index(t)+0.5),'" x2="',topn*(botorder.index(b)+0.5),'" y1="0" y2="',int(topn*botn/20.0),'" stroke-width="',(topn*botn/1100.0),'"></line>'
     print '</svg>'
     # make the elements of the second element
     print '<div class="flex-row '+e[1]+'">'
